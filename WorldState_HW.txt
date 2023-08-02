@@ -1,0 +1,52 @@
+public class Main {
+    public static void main(String[] args) {
+
+        WorldState worldState = new WorldState(true,true,true,true,true,true,true);
+
+        boolean isWorldNegativelyGood = worldState.isWorldNegativelyGood();
+        boolean isWorldPositivelyGood = worldState.isWorldPositivelyGood();
+
+
+        System.out.println("Is the world negatively good? " + isWorldNegativelyGood);
+        System.out.println("Is the world positively good? " + isWorldPositivelyGood);
+    }
+    }
+
+"C:\Program Files\Java\jdk-20\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.1.3\lib\idea_rt.jar=61668:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.1.3\bin" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath C:\Users\Natalia\Homework_worldState\out\production\Homework_worldState Main
+Is the world negatively good? false
+Is the world positively good? true
+
+Process finished with exit code 0
+    
+
+public class WorldState {
+    public boolean isPeaceful;
+    public boolean isFantastic;
+    public boolean isBeautiful;
+    public boolean isProsperous;
+    public boolean isCivilized;
+    public boolean isUnexplored;
+    public boolean isIndustrial;
+
+    public WorldState(boolean isPeaceful, boolean isFantastic, boolean isBeautiful, boolean isProsperous,
+                      boolean isCivilized, boolean isUnexplored, boolean isIndustrial) {
+        this.isPeaceful = isPeaceful;
+        this.isFantastic = isFantastic;
+        this.isBeautiful = isBeautiful;
+        this.isProsperous = isProsperous;
+        this.isCivilized = isCivilized;
+        this.isUnexplored = isUnexplored;
+        this.isIndustrial = isIndustrial;
+    }
+
+    public boolean isWorldNegativelyGood() {
+        return !isPeaceful || !isProsperous || !isFantastic || !isBeautiful || !isCivilized
+                || !isUnexplored || !isIndustrial;
+
+    }
+    public boolean isWorldPositivelyGood() {
+        return isPeaceful && isProsperous && isFantastic && isBeautiful &&
+               isCivilized && isUnexplored && isIndustrial;
+
+    }
+}
